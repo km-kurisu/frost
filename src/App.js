@@ -1,23 +1,64 @@
-import { Button, Container,Paper,Typography, containerClasses } from '@mui/material'
+import { Container, Typography, ThemeProvider , AppBar , Toolbar, Button} from '@mui/material';
+import { createTheme } from '@mui/material/styles'
+import  './App.css'
+
+const maxWidth = 200;
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#ff9760',
+      main: '#393f5f',
+      dark: '#393f5f',
+      contrastText: '#6a7e9a',
+    },
+    secondary: {
+      light: '#e96d5e',
+      main: '#ff9760',
+      dark: '#6a7e9a',
+      contrastText: '#ffe69d',
+    },
+  },
+  typography: {
+    fontFamily: "Quicksand",
+    fontweightLight: 400,
+    fontweightRegular: 400,
+    fontweightMedium: 400,
+    fontweightBold: 400,
+  },
+});
 
 function App() {
   return (
-    <Container 
-    sx={{ height:"100vh"  , textAlign:'center' , py:20 , color:'purple'}} >
-      <Typography 
-      variant='h2'
-      fontFamily={'monospace'}>
-        Portfolio V.1
-      </Typography>
-      <Button variant='normal'
-      sx={{my:10 , px:10 , fontSize:20 , color:'navy' }}>
-        GitHub
-      </Button>
-      <Paper  elevation={8} 
-      sx = {{py:5 , my:3 , fontFamily:'monospace' , fontSize:'20'}}
-      >this is portfolio v.1</Paper>
-    </Container>
-
+    <ThemeProvider theme={theme}>
+      <Container fixed>
+        <Typography
+          color="secondary.light"
+          fontWeight={"Medium"}
+          sx={{ py: 10, fontSize: "3rem" }}
+        >
+          This is react
+        </Typography>
+        <AppBar sx={{ bgcolor: "primary.dark" }} elevation={8}>
+          <Toolbar>
+            <Typography
+              color="secondary.contrastText"
+              fontweightLight
+              fontSize={"1.3rem"}
+            >
+              Layout
+            </Typography>
+            <Button
+            variant='contained'
+            alignContent='right'
+            sx={{bgcolor:"primary.light" ,  display:'flex' , justifyContent:'right' , alignContent:'right'}}
+            >
+              LogIn
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Container>
+    </ThemeProvider>
   );
 }
 
