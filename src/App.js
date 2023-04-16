@@ -1,8 +1,9 @@
-import { Container, Typography, ThemeProvider , AppBar , Toolbar, Button} from '@mui/material';
+import { Container, Typography, ThemeProvider , Button , AppBar , Toolbar} from '@mui/material';
 import { createTheme } from '@mui/material/styles'
 import  './App.css'
+import {BrowserRouter} from 'react-router-dom'
+//import ' ./components/appbar'
 
-const maxWidth = 200;
 
 const theme = createTheme({
   palette: {
@@ -39,7 +40,10 @@ function App() {
         >
           This is react
         </Typography>
-        <AppBar sx={{ bgcolor: "primary.dark" }} elevation={8}>
+        <AppBar 
+        sx={{ bgcolor: "primary.dark" }} 
+        elevation={8}
+         >
           <Toolbar>
             <Typography
               color="secondary.contrastText"
@@ -48,10 +52,15 @@ function App() {
             >
               Layout
             </Typography>
-            <Button
-            variant='contained'
-            alignContent='right'
-            sx={{bgcolor:"primary.light" ,  display:'flex' , justifyContent:'right' , alignContent:'right'}}
+            <Button 
+              variant="contained"
+              alignContent="right"
+              sx={{
+                bgcolor: "primary.light",
+                display: "flex",
+                justifyContent: "right",
+                alignContent: "right",
+              }}
             >
               LogIn
             </Button>
